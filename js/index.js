@@ -5,18 +5,20 @@ function updateSubtotal(product) {
   const price = product.querySelector(".price span");
   const quantity = product.querySelector(".quantity input");
   const subtotal = product.querySelector(".subtotal span")
-  subtotal.innerHTML = price.innerHTML * quantity.value;
+  return subtotal.innerHTML = price.innerHTML * quantity.value;
 }
 
 function calculateAll() {
   let allProducts = document.getElementsByClassName("product");
   let allProductsArray = [...allProducts];
-  allProductsArray.forEach((item) => {
-    updateSubtotal(item);
-  })
-    };
-
+  let result = 0;
+  allProductsArray.forEach(item => result += updateSubtotal(item));
   // ITERATION 3
+  const total = document.querySelector("#total-value span");
+  total.innerHTML = result;
+  };
+
+  
 
 
 
